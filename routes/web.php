@@ -15,10 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'HomeController@dashboard')->name('dashboard');
+
 
 Route::get('login', 'LoginController@login')->name('login');
 Route::post('user_login', 'LoginController@user_login');
 
 Route::get('register', 'RegisterController@register');
 Route::post('save_register', 'RegisterController@save_register')->name('save_user');
+
+
+Route::get('/logout', 'LoginController@logout')->name('logout');  
+
+
+
+
+Route::group(['middleware' => 'auth.user'], function () {
+    
+    Route::get('/', 'HomeController@dashboard')->name('dashboard');
+});

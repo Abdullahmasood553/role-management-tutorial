@@ -34,7 +34,7 @@
 
 
 
-@section('javascript')
+@push('scripts')
 <script>
     $(document).ready(function() {
         $("#loginBtn").click(function(e) {
@@ -88,4 +88,4 @@
           });  
         }); 
 </script>
-@endsection
+@endpush

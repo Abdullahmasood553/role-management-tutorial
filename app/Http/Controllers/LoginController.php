@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class LoginController extends Controller
 {
         public function login() {
@@ -23,4 +25,10 @@ class LoginController extends Controller
                 return response()->json(['error'=> 'Something went wrong']);
             }
         }
+
+
+        public function logout(Request $request) {
+            Auth::logout();
+            return redirect('/login');
+          }    
 }

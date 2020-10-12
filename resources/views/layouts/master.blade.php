@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
 </head>
 <body>
 
@@ -19,9 +19,9 @@
 
 
       @yield('content')
-      @if(\Request::is('login') || \Request::is('check_email_page') || \Request::is('reset_password') || \Request::is('register') || \Request::is('admin/login'))  
+      @if(\Request::is('login') || \Request::is('register'))  
       @else
-      @include('layouts.inc.footer')
+      @include('inc.footer')
 @endif
       
         <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
