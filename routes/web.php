@@ -32,4 +32,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth.user'], function () {
     
     Route::get('/', 'HomeController@dashboard')->name('dashboard');
+
+
+    Route::get('verify_phone_num/{phoneNumber}', 'RegisterController@verify_phone_num');
 });

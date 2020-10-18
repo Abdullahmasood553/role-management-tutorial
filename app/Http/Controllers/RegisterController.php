@@ -29,4 +29,20 @@ class RegisterController extends Controller
             return response()->json(['success' => 'Data Submitted Successfully']);
         }
     }
+
+    public function verify_phone_num($phone) {
+        dd($phone);
+        $userId = "";
+        if(Auth::check()){
+            $userId = Auth::user()->id;
+        }
+        $update = DB::table('users')->where('id', $userId)->update([
+            'phone_verified' => 1,
+            'contact_no' => $phone
+        ]);
+        if($update){
+            echo json_encode('success'); die; 
+        }
+        echo json_encode('failed'); die; 
+    }
 }
